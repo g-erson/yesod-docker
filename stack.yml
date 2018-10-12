@@ -1,0 +1,17 @@
+# Every Stack.yaml needs to specify its resolver
+resolver: lts-12.12
+
+# Build using Docker. Will use the default stack-build image, which
+# includes build tools but not precompiled libraries.
+docker:
+  enable: true
+
+# Generate a Docker image
+image:
+  container:
+    name: gerson.io/yesodstack
+    base: fpco/stack-build
+    # Include some config and static files in the image
+    add:
+      config: /app/config
+      static: /app/static
